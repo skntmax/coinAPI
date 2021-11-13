@@ -7,12 +7,8 @@ import Logout from './components/Logout';
 function App() {
   return (
      <Switch>
-       
 
      <Route exact path= "/" component={Homepage} /> 
-     <Route exact path="/login" component={Login} /> 
-     <Route exact path="/dashboard" component={Dashboard} /> 
-     <Route exact path="/logout" component={Logout} /> 
      </Switch> 
   
   );
