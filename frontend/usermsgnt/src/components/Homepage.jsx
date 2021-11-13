@@ -1,18 +1,19 @@
 import react from 'react'
 import React , {useState,useEffect} from 'react'
-import { useHistory  , Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory , Link } from 'react-router-dom/cjs/react-router-dom.min'
 import axios from 'axios'
 import './styling/style.css'
 
 export default function Homepage() {
-   const [coindata,setCoinData] = useState([ ]) 
+   const [coindata,setCoinData] = useState([]) 
 
    useEffect(() => {
     try{
       axios.get('/exchanges').then(res=>{ 
         console.log(res.data.data)
+        
         res.data.data.map( async  function (ele,index) {
-          console.log(ele)
+             console.log(ele)
              setCoinData([ ...coindata, { 
             exchange_id: ele.exchange_id,
             website: ele.website,
@@ -29,9 +30,10 @@ export default function Homepage() {
             volume_1hrs_usd: ele.volume_1hrs_usd,
             volume_1day_usd: ele.volume_1day_usd,
             volume_1mth_usd: ele.volume_1mth_usd
-          } ])
+          }
+         ])
           
-        } )
+    })
         
      
       console.log(coindata)
